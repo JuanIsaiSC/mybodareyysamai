@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+import Iglesia from "../assets/images/Iglesia_Camino_de_Salvacion.webp"
+import SalonFiesta from "../assets/images/Salon_Fiesta.webp"
+
+---
+
+<div class="bg-[#f5f1eb] px-6 py-8 text-center flex flex-col gap-20  ">
+  <h3 class="font-MonteCarlo text-4xl  text-center  mt-10">Donde y Cuando</h3>
+  <div class="border-2 pb-14 border-[#B7A27A] bg-[#B7A27A]/10">
+    <!-- Imagen -->
+    <Image
+        src={Iglesia}
+        priority
+        decoding="sync"
+        loading="eager"
+        fetchpriority="high"
+        alt={"Foto de Iglesia Evagelica Camino de Salvacion"}
+        class={"object-cover w-full "}
+        
+        />
+
+ <div class=" border-red-600">
+        <h4 class="font-MonteCarlo text-4xl py-8 ">Ceremonia</h4>
+        <h4 class="font-Lora">Iglesia Evangélica Camino de Salvación</h4>
+        <h4 class="font-Lora py-6">4:00 PM</h4>
+    <h4 class="font-Lora ">Av Morelia #295 Col El Cerrito </h4>
+    <h4 class="font-Lora">Tepalcatepec Michoacán</h4>
+    <a
+  href="https://maps.app.goo.gl/NFQXLrFFHiNGR2Z67"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="inline-flex items-center mt-8  rounded-md border border-[#B7A27A] px-6 py-2  transition hover:bg-[#B7A27A] hover:text-white bg-[#B7A27A] text-white"
+>
+  Ver mapa
+</a>
+</div>
+
+  </div>
+
+<div class="border-2 pb-14 border-[#B7A27A] bg-[#B7A27A]/10">
+
+<div class=" border-purple-600 text-center">
+  
+     <Image
+          src={SalonFiesta}
+          priority
+          decoding="sync"
+          loading="eager"
+          fetchpriority="high"
+          alt={"Foto de salon de fiestas"}
+          class={"object-cover "}
+         
+      />
+        <h4 class="font-MonteCarlo text-4xl py-8 ">Recepción</h4>
+        <h4 class="font-Lora">Salón Isaías Neva 5</h4>
+        <h4 class="font-Lora py-6">6:30 PM</h4>
+        <h4 class="font-Lora">Privada Charco Verde</h4>
+        <h4 class="font-Lora"> Tepalcatepec Michoacan</h4>
+        <a
+  href="https://maps.app.goo.gl/oqagsUo3WSBPuXdU9"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="inline-flex items-center mt-8  rounded-md border border-[#B7A27A] px-6 py-2  transition hover:bg-[#B7A27A] hover:text-white bg-[#B7A27A] text-white"
+>
+Ver mapa
+</a>
+</div>
+</div>
+</div>

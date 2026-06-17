@@ -1,0 +1,238 @@
+<section class="max-w-lg mx-auto px-6 py-16">
+
+    <h2 class="font-MonteCarlo text-5xl text-center text-[#456145]">
+        Confirma tu asistencia
+    </h2>
+
+    <p class="text-center mt-3 mb-10 font-Lora">
+        Te agradeceremos confirmar tu asistencia antes del <br>
+        <strong>25 de julio de 2026</strong>.
+    </p>
+
+    <form id="rsvpForm" class="space-y-6">
+
+        <input
+            id="nombre"
+            type="text"
+            placeholder="Nombre completo"
+            required
+            class="w-full rounded-xl border border-[#456145] p-4"
+        />
+
+        <select
+            id="asiste"
+            class="w-full rounded-xl border border-[#456145] p-4"
+        >
+            <option value="Sí asistiré">
+                Sí asistiré
+            </option>
+
+            <option value="No podré asistir">
+                No podré asistir
+            </option>
+
+        </select>
+
+    <div
+    id="datosAsistencia"
+    class="overflow-hidden transition-all duration-500 ease-in-out opacity-100 max-h-[600px]"
+>
+
+    <div>
+        <label
+            for="adultos"
+            class="block mb-2 text-[#456145] font-semibold"
+        >
+            Adultos
+        </label>
+
+        <input
+            id="adultos"
+            type="number"
+            min="0"
+            value="0"
+            class="w-full rounded-xl border border-[#456145] p-4"
+        />
+    </div>
+
+    <div>
+        <label
+            for="ninos"
+            class="block mb-2 text-[#456145] font-semibold"
+        >
+            Niños
+        </label>
+
+        <input
+            id="ninos"
+            type="number"
+            min="0"
+            value="0"
+            class="w-full rounded-xl border border-[#456145] p-4"
+        />
+    </div>
+
+    <div>
+
+        <label
+            for="comentarios"
+            class="block mb-2 text-[#456145] font-semibold"
+        >
+            Comentarios
+        </label>
+
+        <textarea
+            id="comentarios"
+            rows="5"
+            placeholder="Comentarios (opcional)"
+            class="w-full rounded-xl border border-[#456145] p-4"
+        ></textarea>
+
+    </div>
+
+</div>
+
+        <div class="grid grid-cols-2 gap-4">
+
+            <button
+                type="button"
+                id="btnNovio"
+                class="rounded-full bg-[#456145] py-4 text-white font-semibold hover:bg-[#3b523c] transition"
+            >
+                Confirmar con Rey
+            </button>
+
+            <button
+                type="button"
+                id="btnNovia"
+                class="rounded-full bg-[#456145] py-4 text-white font-semibold hover:bg-[#3b523c] transition"
+            >
+                Confirmar con Samai
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+
+<script>
+
+const formulario = document.getElementById("rsvpForm") as HTMLFormElement;
+
+const btnNovio = document.getElementById("btnNovio") as HTMLButtonElement;
+const btnNovia = document.getElementById("btnNovia") as HTMLButtonElement;
+
+const asisteSelect = document.getElementById("asiste") as HTMLSelectElement;
+
+const datosAsistencia = document.getElementById(
+    "datosAsistencia"
+) as HTMLDivElement;
+
+const adultosInput = document.getElementById(
+    "adultos"
+) as HTMLInputElement;
+
+const ninosInput = document.getElementById(
+    "ninos"
+) as HTMLInputElement;
+
+const comentariosInput = document.getElementById(
+    "comentarios"
+) as HTMLTextAreaElement;
+
+
+
+function actualizarFormulario() {
+
+    const noAsiste = asisteSelect.value === "No podré asistir";
+
+    if (noAsiste) {
+
+        datosAsistencia.classList.remove("opacity-100");
+        datosAsistencia.classList.remove("max-h-[600px]");
+
+        datosAsistencia.classList.add("opacity-0");
+        datosAsistencia.classList.add("max-h-0");
+
+        adultosInput.value = "0";
+        ninosInput.value = "0";
+        comentariosInput.value = "";
+
+    } else {
+
+        datosAsistencia.classList.remove("opacity-0");
+        datosAsistencia.classList.remove("max-h-0");
+
+        datosAsistencia.classList.add("opacity-100");
+        datosAsistencia.classList.add("max-h-[600px]");
+
+    }
+
+}
+
+
+
+function enviarWhatsapp(telefono:string){
+
+    const nombre =
+        (document.getElementById("nombre") as HTMLInputElement)
+        .value.trim();
+
+    if(nombre===""){
+
+        alert("Escribe tu nombre.");
+
+        return;
+
+    }
+
+    const mensaje = `🌿 *Confirmación de asistencia*
+
+👤 Nombre:
+${nombre}
+
+💍 Asistencia:
+${asisteSelect.value}
+
+👨 Adultos:
+${adultosInput.value}
+
+👶 Niños:
+${ninosInput.value}
+
+📝 Comentarios:
+${comentariosInput.value || "Ninguno"}
+
+Muchas gracias.`;
+
+    const url =
+        `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+    window.open(url,"_blank");
+
+}
+
+
+
+btnNovio.addEventListener("click",()=>{
+
+    enviarWhatsapp("526442032839");
+
+});
+
+
+
+btnNovia.addEventListener("click",()=>{
+
+    enviarWhatsapp("524531392017");
+
+});
+
+
+
+asisteSelect.addEventListener("change",actualizarFormulario);
+
+actualizarFormulario();
+
+</script>

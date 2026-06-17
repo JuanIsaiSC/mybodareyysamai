@@ -1,0 +1,41 @@
+---
+//Foto de fondo
+//Nombres de los novios
+//Fecha Botón "Ver invitación"
+import { Image } from 'astro:assets';
+import "../styles/global.css"
+import ReySamai from "../assets/images/ReySamai.webp"
+---
+<div class="relative w-full h-screen">
+
+    <Image
+        src={ReySamai}
+        alt="Foto de Rey & Samai"
+        width={800}
+        priority
+        class="w-full h-full object-cover"
+    />
+
+    <!-- Oscurecer ligeramente la imagen -->
+    <div class="absolute inset-0 bg-black/25"></div>
+
+    <!-- Contenido -->
+    <div
+        class="absolute inset-0 flex flex-col gap-10 items-center justify-center pt-40"
+    >
+
+        <h3 class="font-Lora uppercase text-white text-2xl">
+            Nos casamos
+        </h3>
+
+        <h2 class="mt-4 font-MonteCarlo text-[#D8C8A8] max-[330px]:text-5xl text-7xl ">
+            Rey y Samai
+        </h2>
+
+        <h4 class="mt-4 font-Lora uppercase text-white text-2xl">
+            01 de agosto 2026
+        </h4>
+
+    </div>
+
+</div>

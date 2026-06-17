@@ -1,0 +1,91 @@
+---
+import { Image } from 'astro:assets';
+import ReySamai_2 from "../assets/images/ReySamai_2.webp"
+
+---
+<section class=" text-center h-150 relative flex flex-col items-center justify-end border-green-600 ">
+     <Image
+        src={ReySamai_2}
+        loading="eager"
+        fetchpriority="high"
+        alt={"Foto de Rey & Samai"}
+
+        class={"w-full h-150  object-cover "}
+        
+        />
+    
+    <div class="absolute inset-0 bg-black/50"></div>
+    
+    <div class="flex flex-col gap-8 absolute z-10 bottom-25 text-white  border-red-600 ">
+    
+  <h2 class=" text-4xl font-MonteCarlo">
+    Faltan
+  </h2>
+
+  <div class="flex justify-center gap-6">
+
+    <div>
+      <p id="days" class="text-4xl font-bold font-Lora">0</p>
+      <span class="font-Lora">Días</span>
+    </div>
+
+    <div>
+      <p id="hours" class="text-4xl font-bold font-Lora">0</p>
+      <span class="font-Lora">Horas</span>
+    </div>
+
+    <div>
+      <p id="minutes" class="text-4xl font-bold font-Lora">0</p>
+      <span class="font-Lora">Minutos</span>
+    </div>
+
+    <div>
+      <p id="seconds" class="text-4xl font-bold font-Lora">0</p>
+      <span class="font-Lora">Segundos</span>
+    </div>
+    </div>
+
+    <p class="mb-8 text-4xl font-MonteCarlo">para nuestra boda</p>
+  </div>
+</section>
+
+<script>
+  const weddingDate = new Date("2026-08-04T00:00:00");
+
+  const daysEL = document.getElementById("days") as HTMLElement;
+  const hoursEL = document.getElementById("hours") as HTMLElement;
+  const minutesEL = document.getElementById("minutes") as HTMLElement;
+  const secondsEL = document.getElementById("seconds") as HTMLElement;
+
+  function updateCountdown() {
+    const now = new Date();
+    const difference = weddingDate.getTime() - now.getTime();
+
+    if (difference <= 0) {
+      daysEL.textContent = "0";
+      hoursEL.textContent = "0";
+      minutesEL.textContent = "0";
+      secondsEL.textContent = "0";
+      return;
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor(
+      (difference % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor(
+      (difference % (1000 * 60)) / 1000
+    );
+
+    daysEL.textContent = days.toString();
+    hoursEL.textContent = hours.toString().padStart(2, "0");
+    minutesEL.textContent = minutes.toString().padStart(2, "0");
+    secondsEL.textContent = seconds.toString().padStart(2, "0");
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>

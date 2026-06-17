@@ -1,0 +1,94 @@
+<button
+    id="btnMusica"
+    class="fixed bottom-6 right-6 z-50
+           flex h-14 w-14 items-center justify-center
+           rounded-full
+           bg-[#456145]
+           text-white
+           shadow-xl
+           transition
+           hover:scale-110"
+    aria-label="Controlar música"
+>
+    🔇
+</button>
+
+
+
+<audio
+    id="musica"
+    loop
+    preload="auto"
+>
+    <source src="/music/MusicaBoda.mp3" type="audio/mpeg">
+</audio>
+
+<script type="module">
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const audio = document.getElementById("musica");
+    const boton = document.getElementById("btnMusica");
+
+    if (!audio || !boton) return;
+
+    let reproduciendo = false;
+    let intentoAutomatico = false;
+
+    async function iniciarMusica() {
+
+        if (intentoAutomatico) return;
+
+        intentoAutomatico = true;
+
+        try {
+
+            await audio.play();
+
+            reproduciendo = true;
+
+            boton.textContent = "🔊";
+
+        } catch {
+
+            console.log("El navegador bloqueó la reproducción automática.");
+
+        }
+
+    }
+
+    window.addEventListener("click", iniciarMusica, { once: true });
+    window.addEventListener("touchstart", iniciarMusica, { once: true });
+    window.addEventListener("keydown", iniciarMusica, { once: true });
+    window.addEventListener("scroll", iniciarMusica, { once: true });
+
+    boton.addEventListener("click", async () => {
+
+        if (reproduciendo) {
+
+            audio.pause();
+            boton.textContent = "🔇";
+            reproduciendo = false;
+
+        } else {
+
+            try {
+
+                await audio.play();
+
+                boton.textContent = "🔊";
+                reproduciendo = true;
+
+            } catch (error) {
+
+                console.error(error);
+
+            }
+
+        }
+
+    });
+
+});
+
+</script>

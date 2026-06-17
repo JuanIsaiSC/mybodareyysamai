@@ -1,0 +1,36 @@
+---
+import BibleVerse from "../components/BibleVerse.astro"
+import Countdown from "../components/Countdown.astro"
+import Hero from "../components/Hero.astro"
+import Intro from "../components/Intro.astro"
+import Parents from "../components/Parents.astro"
+import Layout from "../layouts/Layout.astro"
+import Ceremony from "../components/Ceremony.astro"
+import DressCode from "../components/DressCode.astro"
+import Hotel from "../components/Hotel.astro"
+import Confirm from "../components/Confirm.astro"
+import Music from "../components/Music.astro"
+
+// sm:max-w-sm md:max-w-md lg:max-w-lg
+---
+
+<Layout>
+    <!-- <div
+        class="border-purple-600 border w-full sm:max-w-sm md:max-w-md lg:max-w-lg">
+    </div> -->
+    <!-- Aquí irá tu mensaje de bienvenida -->
+<div class=" border-blue-600  mx-auto w-full max-w-150    bg-[#f5f1eb] min-h-screen shadow-lg">
+   
+        <Hero />
+        <BibleVerse />
+         <Parents />
+         <Countdown/>
+         <Intro />
+         <Ceremony/>
+         <DressCode/>
+         <Hotel/>
+         <Confirm/>
+         <Music/>   
+</div>
+        
+</Layout>
