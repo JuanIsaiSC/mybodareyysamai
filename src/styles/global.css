@@ -57,3 +57,11 @@
   animation: fadeUp 1.2s ease forwards;
   animation-delay: 1.2s;
 }
+
+.paper-texture {
+  background-image:
+    radial-gradient(circle at 20% 20%, #456145 1px, transparent 1px),
+    radial-gradient(circle at 80% 60%, #456145 1px, transparent 1px),
+    radial-gradient(circle at 40% 90%, #456145 1px, transparent 1px);
+  background-size: 60px 60px;
+}

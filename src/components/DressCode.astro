@@ -1,18 +1,69 @@
 ---
 import { Image } from 'astro:assets';
-import Dresscode from "../assets/images/iconodresscode.png"
-
+import Dresscode from "../assets/images/iconodresscode.png";
 ---
 
-<div class="text-center flex flex-col gap-10 px-10 items-center bg-[#B7A27A]/25 py-20">
-    <h2 class="font-MonteCarlo text-4xl   ">Código de vestimenta</h2>
+<div class="bg-[#B7A27A]/25 py-20 px-6">
 
-    <h3 class="font-Lora uppercase text-lg">formal</h3>
-     <Image
-        src={Dresscode}
-        alt={"Imagen Icono de Vestimena"}
-        class={"object-cover w-32  "}
+    <div
+        class="max-w-xl mx-auto
+               border border-[#456145]/20
+               py-12 px-8
+               text-center"
+    >
+
+        <!-- Ornamento superior -->
+        <div class="flex justify-center items-center mb-10">
+
+            <span class="w-16 h-px bg-[#456145]/40"></span>
+
+            <span class="mx-4 text-[#456145] text-xl">
+                ❦
+            </span>
+
+            <span class="w-16 h-px bg-[#456145]/40"></span>
+
+        </div>
+
+        <h2
+            class="font-MonteCarlo text-5xl text-[#456145]"
+        >
+            Código de vestimenta
+        </h2>
+
+        <h3
+            class="mt-8 font-Lora uppercase tracking-[0.2em] text-lg"
+        >
+            Formal
+        </h3>
+
+        <Image
+            src={Dresscode}
+            alt="Imagen Icono de Vestimenta"
+            class="mx-auto mt-8 w-32"
         />
 
-    <h3 class="font-Lora ">El color traje azul y vestido blanco <br>son reservados para el Novio y la Novia </h3>    
+        <p
+            class="mt-10 font-Lora text-lg leading-relaxed"
+        >
+            El color traje azul y vestido blanco
+            <br />
+            son reservados para el Novio y la Novia
+        </p>
+
+        <!-- Ornamento inferior -->
+        <div class="flex justify-center items-center mt-10">
+
+            <span class="w-16 h-px bg-[#456145]/40"></span>
+
+            <span class="mx-4 text-[#456145] text-xl">
+                ❦
+            </span>
+
+            <span class="w-16 h-px bg-[#456145]/40"></span>
+
+        </div>
+
+    </div>
+
 </div>

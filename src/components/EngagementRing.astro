@@ -1,37 +1,60 @@
 ---
 import { Image } from 'astro:assets';
-import Ring from "../assets/images/ReySamai_3.jpeg"
-
+import Ring from "../assets/images/ReySamai_3.jpeg";
 ---
 
+<section class="bg-[#B7A27A]/25 py-10 px-6">
 
-<section class="py-20 px-6 bg-[#B7A27A]/25">
+    <div
+        class="max-w-xl mx-auto
+               border border-[#456145]/20
+               py-10 px-6"
+    >
 
-    <div class="max-w-md mx-auto text-center">
+        <!-- Ornamento superior -->
+        <div class="flex justify-center items-center mb-10">
 
-        <Image
-            src={Ring}
-            alt="Anillo de compromiso"
-            class="w-full rounded-sm shadow-lg"
-        />
+            <span class="w-16 h-px bg-[#456145]/40"></span>
 
-        <div class="mt-10 flex items-center justify-center gap-4">
+            <span class="mx-4 text-[#456145] text-xl">
+                ❦
+            </span>
 
-            <span class="h-px w-12 bg-[#C6D1AA]"></span>
-
-            <span class="text-[#456145] text-xl">♥</span>
-
-            <span class="h-px w-12 bg-[#C6D1AA]"></span>
+            <span class="w-16 h-px bg-[#456145]/40"></span>
 
         </div>
 
-        <h2
-            class="mt-8 font-MonteCarlo text-4xl "
-        >
-            Donde empieza nuestra historia juntos
-        </h2>
+        <div class="text-center">
+
+            <Image
+                src={Ring}
+                alt="Anillo de compromiso"
+                class="w-full rounded-sm shadow-lg"
+            />
+
+          
+
+            <h2
+                class="mt-8 font-MonteCarlo text-4xl text-[#456145]"
+            >
+                Donde empieza nuestra historia juntos
+            </h2>
+
+        </div>
+
+        <!-- Ornamento inferior -->
+        <div class="flex justify-center items-center mt-10">
+
+            <span class="w-16 h-px bg-[#456145]/40"></span>
+
+            <span class="mx-4 text-[#456145] text-xl">
+                ❦
+            </span>
+
+            <span class="w-16 h-px bg-[#456145]/40"></span>
+
+        </div>
+
     </div>
 
 </section>
-
-
