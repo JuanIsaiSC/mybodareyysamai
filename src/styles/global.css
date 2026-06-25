@@ -3,6 +3,57 @@
 @import "tailwindcss";
 
 @theme {
-    --font-MonteCarlo: "MonteCarlo", sans-serif;
-    --font-Lora: "Lora", sans-serif;
+  --font-MonteCarlo: "MonteCarlo", sans-serif;
+  --font-Lora: "Lora", sans-serif;
+}
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes elegantReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+    letter-spacing: 0.1em;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    letter-spacing: 0;
+  }
+}
+
+.animate-title {
+  opacity: 0;
+  animation: fadeDown 1.2s ease forwards;
+}
+
+.animate-names {
+  opacity: 0;
+  animation: elegantReveal 1.8s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.animate-date {
+  opacity: 0;
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 1.2s;
 }
